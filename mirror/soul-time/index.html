@@ -1,1 +1,19 @@
-PLACEHOLDER_REPLACE_WITH_FULL_SOUL_FROM_/tmp/soul_raw.html
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>OMNI Mirror Soul-time</title>
+</head><body>
+<p id="st" style="font:14px system-ui;color:#9aa8bf;background:#0b1220;margin:0;padding:1rem">Loading Soul-time…</p>
+<script type="module">
+const n = 6;
+const parts = [];
+for (let i = 0; i < n; i++) {
+  const r = await fetch(new URL('./part' + i + '.txt', import.meta.url));
+  if (!r.ok) throw new Error('part ' + i + ' ' + r.status);
+  parts.push(await r.text());
+}
+const html = atob(parts.join(''));
+document.open(); document.write(html); document.close();
+</script>
+</body></html>

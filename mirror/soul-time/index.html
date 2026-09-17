@@ -1,34 +1,35 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>OMNI Mirror Soul-time</title>
-</head><body>
-<p id="st" style="font:14px system-ui;color:#9aa8bf;background:#0b1220;margin:0;padding:1rem">Loading Soul-time...</p>
-<script type="module">
-// Unicode-safe loader: atob binary string + document.write mojibakes UTF-8 punctuation (· — … →).
-// Decode base64 -> UTF-8 bytes -> string, then replace the document.
-const n = 12;
-const baseLocal = new URL('./', import.meta.url);
-const baseRemote = 'https://raw.githubusercontent.com/ThePuzzler-OMNI/omni-mindmap/main/mirror/soul-time/';
-const parts = [];
-for (let i = 0; i < n; i++) {
-  let text = null;
-  try {
-    const r = await fetch(new URL('part' + i + '.txt', baseLocal));
-    if (r.ok) text = await r.text();
-  } catch (_) {}
-  if (text == null) {
-    const r = await fetch(baseRemote + 'part' + i + '.txt');
-    if (!r.ok) throw new Error('part ' + i + ' ' + r.status);
-    text = await r.text();
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #0b1220;
+    --fg: #e8eef9;
+    --muted: #9aa8bf;
+    --accent: #7eb6ff;
   }
-  parts.push(text.trim());
-}
-const bin = Uint8Array.from(atob(parts.join('')), c => c.charCodeAt(0));
-const html = new TextDecoder('utf-8').decode(bin);
-document.open();
-document.write(html);
-document.close();
+  html, body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--bg);
+    color: var(--fg);
+    font: 15px/1.45 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+  #boot {
+    padding: 1rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<div id="boot">Loading Soul-time...</div>
+<script type="module">
+// This stub is replaced by the real payload in the next commit if this push is a stub.
+// Prefer the FULL.html content; if you see this message, the full file did not land.
 </script>
-</body></html>
+</body>
+</html>

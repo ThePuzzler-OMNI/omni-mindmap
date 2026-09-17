@@ -6,14 +6,23 @@
 </head><body>
 <p id="st" style="font:14px system-ui;color:#9aa8bf;background:#0b1220;margin:0;padding:1rem">Loading Soul-time…</p>
 <script type="module">
-const n = 12;
-const parts = [];
-for (let i = 0; i < n; i++) {
-  const r = await fetch(new URL('./part' + i + '.txt', import.meta.url));
-  if (!r.ok) throw new Error('part ' + i + ' ' + r.status);
-  parts.push(await r.text());
+const urls = [
+  new URL('./bundle.html', import.meta.url).href,
+  'https://raw.githubusercontent.com/ThePuzzler-OMNI/omni-mindmap/main/mirror/soul-time/bundle.html',
+];
+let lastErr;
+for (const u of urls) {
+  try {
+    const r = await fetch(u);
+    if (!r.ok) throw new Error(u + ' ' + r.status);
+    const html = await r.text();
+    if (html.trim() === 'placeholder') throw new Error('bundle still placeholder');
+    document.open(); document.write(html); document.close();
+    break;
+  } catch (e) { lastErr = e; }
 }
-const html = atob(parts.join(''));
-document.open(); document.write(html); document.close();
+if (document.getElementById('st')) {
+  document.getElementById('st').textContent = 'Soul-time load failed: ' + (lastErr && lastErr.message);
+}
 </script>
 </body></html>

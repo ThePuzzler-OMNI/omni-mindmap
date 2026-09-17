@@ -1,4 +1,8 @@
 {
   "cleanUrls": true,
-  "trailingSlash": true
+  "trailingSlash": true,
+  "rewrites": [
+    { "source": "/mirror", "destination": "/mirror/index.html" },
+    { "source": "/mirror/", "destination": "/mirror/index.html" }
+  ]
 }

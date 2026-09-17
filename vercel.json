@@ -1,8 +1,21 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
-  "rewrites": [
-    { "source": "/mirror", "destination": "/mirror/index.html" },
-    { "source": "/mirror/", "destination": "/mirror/index.html" }
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/mirror/soul-time/",
+      "permanent": false
+    },
+    {
+      "source": "/mirror",
+      "destination": "/mirror/soul-time/",
+      "permanent": false
+    },
+    {
+      "source": "/mirror/",
+      "destination": "/mirror/soul-time/",
+      "permanent": false
+    }
   ]
 }

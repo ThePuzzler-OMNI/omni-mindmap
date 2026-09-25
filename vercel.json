@@ -1,21 +1,39 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": true,
   "redirects": [
     {
       "source": "/",
-      "destination": "/mirror/soul-time/",
-      "permanent": false
+      "destination": "https://intekspace.com/forge/mirror",
+      "permanent": true
     },
     {
       "source": "/mirror",
-      "destination": "/mirror/soul-time/",
-      "permanent": false
+      "destination": "https://intekspace.com/forge/mirror",
+      "permanent": true
     },
     {
       "source": "/mirror/",
-      "destination": "/mirror/soul-time/",
-      "permanent": false
+      "destination": "https://intekspace.com/forge/mirror",
+      "permanent": true
+    },
+    {
+      "source": "/mirror/soul-time",
+      "destination": "https://intekspace.com/forge/mirror",
+      "permanent": true
+    },
+    {
+      "source": "/mirror/soul-time/",
+      "destination": "https://intekspace.com/forge/mirror",
+      "permanent": true
+    },
+    {
+      "source": "/mirror/soul-time/:path*",
+      "destination": "https://intekspace.com/forge/mirror",
+      "permanent": true
+    },
+    {
+      "source": "/mirror/soul-time/:path*/",
+      "destination": "https://intekspace.com/forge/mirror",
+      "permanent": true
     }
   ]
 }
